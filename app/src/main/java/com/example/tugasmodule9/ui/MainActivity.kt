@@ -1,7 +1,8 @@
-package com.example.tugasmodule9
+package com.example.tugasmodule9.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tugasmodule9.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
