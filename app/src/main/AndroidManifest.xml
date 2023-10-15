@@ -15,16 +15,16 @@
         android:theme="@style/Theme.TugasModule9"
         tools:targetApi="31">
         <activity
-            android:name=".ui.UpComingActivity"
+            android:name=".ui.upComing.UpComingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.PopularActivity"
+            android:name=".ui.popular.PopularActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.NowPlayingActivity"
+            android:name=".ui.nowPlaying.NowPlayingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.TopRatedActivity"
+            android:name=".ui.topRated.TopRatedActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
