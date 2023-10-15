@@ -1,4 +1,4 @@
-package com.example.tugasmodule9.ui
+package com.example.tugasmodule9.ui.nowPlaying
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

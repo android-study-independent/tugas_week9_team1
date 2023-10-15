@@ -1,12 +1,12 @@
-package com.example.tugasmodule9.ui
+package com.example.tugasmodule9.ui.topRated
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tugasmodule9.R
 
-class PopularActivity : AppCompatActivity() {
+class TopRatedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_popular)
+        setContentView(R.layout.activity_top_rated)
     }
 }
