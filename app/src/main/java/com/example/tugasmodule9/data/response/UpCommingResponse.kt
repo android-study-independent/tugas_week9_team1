@@ -11,3 +11,8 @@ data class UpCommingResponse(
     @SerializedName("total_result")
     val totalResult: Int
 )
+
+data class dates(
+    val maximum:String?,
+    val minimum:String?,
+)

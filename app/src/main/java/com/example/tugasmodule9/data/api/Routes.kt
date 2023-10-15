@@ -1,6 +1,7 @@
 package com.example.tugasmodule9.data.api
 
 import com.example.tugasmodule9.data.response.TopRatedResponse
+import com.example.tugasmodule9.data.response.UpCommingResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
@@ -14,4 +15,11 @@ interface Routes {
         @Query("language") lang: String,
         @Query("page") page: Int
     ): TopRatedResponse
+
+    @GET("movie/upcoming")
+    @Headers("Authorization:")
+    suspend fun getUpcoming(
+        @Query("language") lang: String = "en-EN",
+        @Query("page") page: Int
+    ): UpCommingResponse
 }
