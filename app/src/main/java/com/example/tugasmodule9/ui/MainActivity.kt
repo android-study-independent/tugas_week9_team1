@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tugasmodule9.databinding.ActivityMainBinding
 import com.example.tugasmodule9.ui.nowPlaying.NowPlayingActivity
-import com.example.tugasmodule9.ui.popular.PopularActivity
+import com.example.tugasmodule9.ui.populer.PopulerActivity
 import com.example.tugasmodule9.ui.topRated.TopRatedActivity
 import com.example.tugasmodule9.ui.upComing.UpComingActivity
 
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnPopular.setOnClickListener {
-            val intent = Intent(this, PopularActivity::class.java)
+            val intent = Intent(this, PopulerActivity::class.java)
             startActivity(intent)
         }
         binding.btnUpComing.setOnClickListener {

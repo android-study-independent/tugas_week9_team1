@@ -1,5 +1,6 @@
 package com.example.tugasmodule9.data.api
 
+import com.example.tugasmodule9.data.response.ResultsItem
 import com.example.tugasmodule9.data.response.TopRatedResponse
 import com.example.tugasmodule9.data.response.UpCommingResponse
 import retrofit2.http.GET
@@ -20,4 +21,12 @@ interface Routes {
         @Query("language") lang: String = "en-EN",
         @Query("page") page: Int
     ): UpCommingResponse
+
+    @GET("movie/populer")
+    suspend fun getPopuler(
+        @Query("poster_path") posterPath: String?,
+        @Query("title") title : String?
+    ): ResultsItem
+
+
 }
