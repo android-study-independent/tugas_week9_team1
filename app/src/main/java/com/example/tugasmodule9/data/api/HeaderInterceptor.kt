@@ -5,7 +5,7 @@ import okhttp3.Response
 
 class HeaderInterceptor: Interceptor {
 
-    private val TOKEN = "9530e1f4e74cb426f57cb45e84869d5d"
+    private val TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhN2RiMTE4YWU0OTJkMGNiMzZmOTM2Y2ZlZjc4OGU0ZCIsInN1YiI6IjY1MjRkMWZjZDM5OWU2MDBjNjc2M2Q5NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tmoke3RDcxtoMJZWBOun4v6PEr_7hInEvnq2tMqSXQE"
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
             .addHeader("Authorization", "Bearer $TOKEN").build()
