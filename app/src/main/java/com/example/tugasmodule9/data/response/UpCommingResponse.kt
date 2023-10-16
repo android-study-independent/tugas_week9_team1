@@ -6,9 +6,9 @@ data class UpCommingResponse(
     val dates : dates?,
     val page: Int,
     val results: List<MovieResponse>,
-    @SerializedName("total_page")
+    @SerializedName("total_pages")
     val totalPage: Int,
-    @SerializedName("total_result")
+    @SerializedName("total_results")
     val totalResult: Int
 )
 

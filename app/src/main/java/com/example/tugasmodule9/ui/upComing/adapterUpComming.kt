@@ -10,7 +10,22 @@ import com.example.tugasmodule9.R
 import com.example.tugasmodule9.data.response.MovieResponse
 import com.squareup.picasso.Picasso
 
-class adapterUpComming(private val listMovie: List<MovieResponse>): RecyclerView.Adapter<adapterUpComming.UpCommingHolder>() {
+class adapterUpComming(private var listMovie: List<MovieResponse>): RecyclerView.Adapter<adapterUpComming.UpCommingHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpCommingHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_up_comming, parent, false)
+        return UpCommingHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return listMovie.size
+    }
+
+    override fun onBindViewHolder(holder: UpCommingHolder, position: Int) {
+        holder.bindView(listMovie[position])
+    }
+
     inner class UpCommingHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(movie: MovieResponse) {
             val imgPoster = view.findViewById<ImageView>(R.id.imgPoster)
@@ -31,20 +46,6 @@ class adapterUpComming(private val listMovie: List<MovieResponse>): RecyclerView
         private fun buildPosterPath(posterPath: String?): String {
             return "https://image.tmdb.org/t/p/w500/$posterPath"
         }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpCommingHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_top_rated, parent, false)
-        return UpCommingHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return listMovie.size
-    }
-
-    override fun onBindViewHolder(holder: UpCommingHolder, position: Int) {
-        holder.bindView(listMovie[position])
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.tugasmodule9.ui.upComing
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,28 +16,28 @@ import kotlinx.coroutines.launch
 class UpComingActivity : AppCompatActivity() {
     private lateinit var adapter: adapterUpComming
     private var listMovie = mutableListOf<MovieResponse>()
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_up_coming)
 
-        val rvTopRated = findViewById<RecyclerView>(R.id.rvTopRated) // Correct the view type
-        rvTopRated.layoutManager = LinearLayoutManager(this)
+        val rvupcomming = findViewById<RecyclerView>(R.id.rvTopRated) // Correct the view type
+        rvupcomming.layoutManager = LinearLayoutManager(this)
 
         adapter = adapterUpComming(listMovie)
-        rvTopRated.adapter = adapter
 
+        rvupcomming.adapter = adapter
         lifecycleScope.launch {
-            val result = Network.getService(this@UpComingActivity).getTopRated(
+            val result = Network.getService(this@UpComingActivity).getUpcoming(
                 page = 1, lang = "en-EN"
             )
-            Log.d("debug", "total page -> ${result.totalPage}")
             result.results.map {
-                Log.d("debug", "hasilnya-> ${it.title} - ${it.overview}")
+                Log.d("debug", "No. ${it.id} : ${it.title} : ${it.backdropPath}")
                 listMovie.add(it)
             }
             // Update the RecyclerViewnya
             adapter.notifyDataSetChanged()
         }
-        
+
     }
 }
