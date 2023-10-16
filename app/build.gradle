@@ -53,6 +53,9 @@ dependencies {
     debugImplementation "com.github.chuckerteam.chucker:library:4.0.0"
     releaseImplementation "com.github.chuckerteam.chucker:library-no-op:4.0.0"
 
+    // Picasso
+    implementation "com.squareup.picasso:picasso:2.8"
+
     //lifecycle scope coroutine
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
 }
