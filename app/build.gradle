@@ -55,4 +55,7 @@ dependencies {
 
     //lifecycle scope coroutine
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+
+    //image load
+    implementation 'com.squareup.picasso:picasso:2.8'
 }
