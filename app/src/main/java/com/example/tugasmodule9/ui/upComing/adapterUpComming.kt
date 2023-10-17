@@ -12,7 +12,8 @@ import com.example.tugasmodule9.data.response.MovieResponse
 import com.example.tugasmodule9.ui.movieDetail.MovieDetailActivity
 import com.squareup.picasso.Picasso
 
-class adapterUpComming(private var listMovie: List<MovieResponse>): RecyclerView.Adapter<adapterUpComming.UpCommingHolder>() {
+class adapterUpComming(private val listMovie: List<MovieResponse>):
+    RecyclerView.Adapter<adapterUpComming.UpCommingHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpCommingHolder {
         val view = LayoutInflater.from(parent.context)
