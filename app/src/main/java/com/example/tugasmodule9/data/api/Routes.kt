@@ -1,10 +1,7 @@
 package com.example.tugasmodule9.data.api
 
-<<<<<<< HEAD
 import com.example.tugasmodule9.data.response.NowPlayingResponse
-=======
 import com.example.tugasmodule9.data.response.ResultsItem
->>>>>>> b5cc72d19489ce240e89f80bd17f41c46d93cf48
 import com.example.tugasmodule9.data.response.TopRatedResponse
 import com.example.tugasmodule9.data.response.UpCommingResponse
 import retrofit2.http.GET
@@ -20,13 +17,12 @@ interface Routes {
         @Query("page") page: Int
     ): TopRatedResponse
 
-<<<<<<< HEAD
     @GET("movie/now_playing")
     suspend fun getNowPlaying(
         @Query("language") lang: String = "en-US",
         @Query("page") page: Int
     ): NowPlayingResponse
-=======
+
     @GET("movie/upcoming")
     suspend fun getUpcoming(
         @Query("language") lang: String = "en-EN",
@@ -38,7 +34,5 @@ interface Routes {
         @Query("poster_path") posterPath: String?,
         @Query("title") title : String?
     ): ResultsItem
-
->>>>>>> b5cc72d19489ce240e89f80bd17f41c46d93cf48
 
 }

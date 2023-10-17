@@ -38,27 +38,15 @@ class TopRatedActivity : AppCompatActivity() {
         binding.rvTopRated.adapter = adapter
 
         lifecycleScope.launch {
-            val result = Network.getService(this@TopRatedActivity).getTopRated(
-                page = 1
+            val result = Network.getService(this@TopRatedActivity).getUpcoming(
+                page = 1, lang = "en-EN"
             )
-
-            Log.d("debug", "total page -> ${result.totalPage}")
-
             result.results.map {
-                Log.d("debug", "hasilnya -> ${it.title} - ${it.overview}")
+                Log.d("debug", "No. ${it.id} : ${it.title} : ${it.backdropPath}")
                 listMovie.add(it)
             }
-
-            // update recyclerviewnya
+            // Update the RecyclerViewnya
             adapter.notifyDataSetChanged()
         }
     }
-
-//    private fun showLoading(isLoading: Boolean){
-//        if (isLoading){
-//            binding.progressCircular.visibility = View.VISIBLE
-//        } else {
-//            binding.progressCircular.visibility = View.GONE
-//        }
-//    }
 }

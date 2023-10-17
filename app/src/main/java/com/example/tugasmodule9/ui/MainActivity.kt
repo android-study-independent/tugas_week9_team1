@@ -4,12 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tugasmodule9.databinding.ActivityMainBinding
-<<<<<<< HEAD
-import com.example.tugasmodule9.ui.popular.PopularActivity
-=======
 import com.example.tugasmodule9.ui.nowPlaying.NowPlayingActivity
 import com.example.tugasmodule9.ui.populer.PopulerActivity
->>>>>>> b5cc72d19489ce240e89f80bd17f41c46d93cf48
 import com.example.tugasmodule9.ui.topRated.TopRatedActivity
 import com.example.tugasmodule9.ui.upComing.UpComingActivity
 
