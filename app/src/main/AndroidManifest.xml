@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TugasModule9"
         tools:targetApi="31">
         <activity
+            android:name=".ui.movieDetail.MovieDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.nowPlaying.NowPlayingActivity"
             android:exported="false"
             android:label="@string/title_activity_now_playing"

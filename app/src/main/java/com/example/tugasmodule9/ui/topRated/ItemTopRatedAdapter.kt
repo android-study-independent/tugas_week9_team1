@@ -1,5 +1,6 @@
 package com.example.tugasmodule9.ui.topRated
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugasmodule9.data.response.MovieResponse
 import com.example.tugasmodule9.R
+import com.example.tugasmodule9.ui.movieDetail.MovieDetailActivity
 import com.squareup.picasso.Picasso
 
 class ItemTopRatedAdapter(private val listMovie: List<MovieResponse>) :
@@ -23,6 +25,15 @@ class ItemTopRatedAdapter(private val listMovie: List<MovieResponse>) :
             val path = buildPosterPath(movie.posterPath)
             Picasso.get().load(path).into(imgPoster)
 
+            itemView.setOnClickListener{
+                val intent = Intent(itemView.context, MovieDetailActivity::class.java)
+                intent.putExtra("image", movie.posterPath)
+                intent.putExtra("movie_title", movie.title)
+                intent.putExtra("movie_rating", movie.voteAverage)
+                intent.putExtra("movie_popularity", movie.popularity)
+                intent.putExtra("movie_overview", movie.overview)
+                itemView.context.startActivity(intent)
+            }
         }
 
     }
