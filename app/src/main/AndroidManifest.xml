@@ -23,7 +23,7 @@
             android:name=".ui.upComing.UpComingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.popular.PopularActivity"
+            android:name=".ui.populer.PopulerActivity"
             android:exported="false" />
         <activity
             android:name=".ui.topRated.TopRatedActivity"
