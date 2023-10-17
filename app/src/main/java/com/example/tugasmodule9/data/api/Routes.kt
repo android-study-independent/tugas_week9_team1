@@ -16,7 +16,7 @@ interface Routes {
 
     @GET("movie/top_rated")
     suspend fun getTopRated(
-        @Query("language") lang: String,
+        @Query("language") lang: String = "en-EN",
         @Query("page") page: Int
     ): TopRatedResponse
 
