@@ -1,5 +1,6 @@
 package com.example.tugasmodule9.ui.upComing
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugasmodule9.R
 import com.example.tugasmodule9.data.response.MovieResponse
+import com.example.tugasmodule9.ui.movieDetail.MovieDetailActivity
 import com.squareup.picasso.Picasso
 
-class adapterUpComming(private var listMovie: List<MovieResponse>): RecyclerView.Adapter<adapterUpComming.UpCommingHolder>() {
+class adapterUpComming(private val listMovie: List<MovieResponse>):
+    RecyclerView.Adapter<adapterUpComming.UpCommingHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpCommingHolder {
         val view = LayoutInflater.from(parent.context)
@@ -41,6 +44,16 @@ class adapterUpComming(private var listMovie: List<MovieResponse>): RecyclerView
             val path = buildPosterPath(movie.posterPath)
             // load image from url into imageview
             Picasso.get().load(path).into(imgPoster)
+
+            itemView.setOnClickListener{
+                val intent = Intent(itemView.context, MovieDetailActivity::class.java)
+                intent.putExtra("image", movie.posterPath)
+                intent.putExtra("movie_title", movie.title)
+                intent.putExtra("movie_rating", movie.voteAverage)
+                intent.putExtra("movie_popularity", movie.popularity)
+                intent.putExtra("movie_overview", movie.overview)
+                itemView.context.startActivity(intent)
+            }
         }
 
         private fun buildPosterPath(posterPath: String?): String {
