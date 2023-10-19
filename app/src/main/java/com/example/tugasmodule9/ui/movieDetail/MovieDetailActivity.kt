@@ -2,7 +2,7 @@ package com.example.tugasmodule9.ui.movieDetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import coil.load
+//import coil.load
 import com.example.tugasmodule9.R
 import com.example.tugasmodule9.databinding.ActivityMovieDetailBinding
 import com.squareup.picasso.Picasso
