@@ -3,6 +3,7 @@ package com.example.tugasmodule9.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.tugasmodule9.databinding.ActivityMainBinding
 import com.example.tugasmodule9.ui.login.LoginActivity
 import com.example.tugasmodule9.ui.nowPlaying.NowPlayingActivity
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        auth = FirebaseAuth.getInstance()
 
 
         binding.btnLogout.setOnClickListener{
@@ -52,4 +55,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }

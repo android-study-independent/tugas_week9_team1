@@ -57,7 +57,7 @@ class registerActivity : AppCompatActivity() {
             Log.d("password1", "password1 : ${password1}")
             Log.d("password2", "password2 : ${password2}")
 
-            if(password1 !== password2){
+            if(password1 != password2){
                 iptpassword2.error = "Konfirmasi password tidak valid"
                 iptpassword2.requestFocus()
                 return@setOnClickListener
@@ -93,7 +93,7 @@ class registerActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(auth.currentUser != null){
-            Intent(this, MainActivity::class.java).also {
+            Intent(this, LoginActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
                         Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)
