@@ -3,6 +3,7 @@ package com.example.tugasmodule9.ui.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -52,7 +53,11 @@ class registerActivity : AppCompatActivity() {
                 iptpassword2.requestFocus()
                 return@setOnClickListener
             }
-            if(password1 == password2){
+
+            Log.d("password1", "password1 : ${password1}")
+            Log.d("password2", "password2 : ${password2}")
+
+            if(password1 !== password2){
                 iptpassword2.error = "Konfirmasi password tidak valid"
                 iptpassword2.requestFocus()
                 return@setOnClickListener
