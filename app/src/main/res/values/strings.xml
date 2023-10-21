@@ -47,8 +47,8 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="text_populer">Yang sedang populer sekarang.</string>
+    <string name="text_populer">Yang sedang popular sekarang.</string>
     <string name="logout">logout</string>
-    <string name="webclient_id">791234406365-po4fmj0nk2inrl9l7h31pvqjp36t2l29.apps.googleusercontent.com</string>
+    <string name="webclient_id">791234406365-0a7ki9btpk1rif69m251ncrf82q0jbo5.apps.googleusercontent.com</string>
     <string name="REQ_GOOGLE_IN">1</string>
 </resources>
