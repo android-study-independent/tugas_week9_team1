@@ -15,8 +15,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.auth
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth:FirebaseAuth
@@ -35,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         // firebase
-        auth = FirebaseAuth.getInstance()
+        auth = Firebase.auth
 
         // aksi btn register
         btnregister.setOnClickListener{
@@ -53,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnlogingoogle.setOnClickListener{
             val signInIntent = googleSignInClient.signInIntent
-            startActivityForResult(signInIntent, R.string.REQ_GOOGLE_IN)
+            startActivityForResult(signInIntent, 1)
         }
 
         // aksi btn login
@@ -83,29 +85,34 @@ class LoginActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == R.string.REQ_GOOGLE_IN) {
 
+        Log.d("Team1 : 1 : 1 : ", "step 1")
+        if (requestCode == 1) {
+            Log.d("Team1 : 1 : 1 : ", "step 2")
             // ambil data google account yang dipake user
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
-                Log.d("Team 1", "firebaseAuthWithGoogle: ${account.idToken}")
+                Log.d("Team 1 : 1 : ", "firebaseAuthWithGoogle: ${account.idToken}")
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-                Log.e("Team 1", "error -> ${e.localizedMessage}")
+                Log.e("Team 1 : 1 : ", "error -> ${e.localizedMessage}")
+                Toast.makeText(this, "Google Sign-In Error: ${e.statusCode}", Toast.LENGTH_SHORT).show()
             }
         }
     }
     private fun firebaseAuthWithGoogle(idToken: String) {
+        Log.d("Team1 : 1 : 2 : ", "step 1")
         Log.d("Team 1", "token -> $idToken")
         val credential = GoogleAuthProvider.getCredential(idToken, null)
 
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    Log.d("Team1 : 1 : 2 : ", "step 2")
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("Team 1", "signInWithCredential:success")
+                    Log.d("Team 1 : 2 : ", "signInWithCredential:success")
                     val user = auth.currentUser
                     Toast.makeText(
                         this,
@@ -118,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("pratama_tag", "signInWithCredential:failure", task.exception)
+                    Log.w("Team 1 : 2 : ", "signInWithCredential:failure", task.exception)
                     Toast.makeText(this, "Gagal sign in", Toast.LENGTH_SHORT).show()
                 }
             }
