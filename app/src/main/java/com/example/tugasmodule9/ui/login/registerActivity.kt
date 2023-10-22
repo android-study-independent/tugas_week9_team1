@@ -10,7 +10,10 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.tugasmodule9.R
 import com.example.tugasmodule9.ui.MainActivity
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 class registerActivity : AppCompatActivity() {
     private lateinit var auth:FirebaseAuth
@@ -26,6 +29,10 @@ class registerActivity : AppCompatActivity() {
         val iptpassword1 = findViewById<EditText>(R.id.etPassword1)
         val iptpassword2 = findViewById<EditText>(R.id.etPassword2)
 
+        // firebase crasyanalytic
+        FirebaseApp.initializeApp(this)
+        FirebaseAnalytics.getInstance(this)
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
         // firebase
         auth = FirebaseAuth.getInstance()
         btnregister.setOnClickListener{
@@ -84,7 +91,10 @@ class registerActivity : AppCompatActivity() {
                         startActivity(it)
                     }
                 }else{
-                    Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Registrasi Gagal", Toast.LENGTH_SHORT).show()
+                    Log.d("register", "error : ${it.exception}")
+
+                    // Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
                 }
             }
 

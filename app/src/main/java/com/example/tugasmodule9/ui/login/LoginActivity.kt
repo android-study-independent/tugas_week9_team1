@@ -16,9 +16,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth:FirebaseAuth
@@ -26,6 +29,16 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+
+        // firebase
+        auth = Firebase.auth
+
+        // firebase crasyanalytic
+        FirebaseApp.initializeApp(this)
+        FirebaseAnalytics.getInstance(this)
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
+
         // button
         val btnregister = findViewById<Button>(R.id.btnRegister)
         val btnlogin = findViewById<Button>(R.id.btnLogin)
@@ -34,10 +47,6 @@ class LoginActivity : AppCompatActivity() {
         val iptpassword = findViewById<EditText>(R.id.etPassword)
         val btnlogingoogle = findViewById<SignInButton>(R.id.btnlogin_google)
 
-
-
-        // firebase
-        auth = Firebase.auth
 
         // aksi btn register
         btnregister.setOnClickListener{
@@ -86,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        
+
         if (requestCode == R.string.REQ_GOOGLE_IN) {
             // ambil data google account yang dipake user
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -135,7 +144,11 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(inten)
                     }
                 } else {
-                    Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                    // Login gagal, tampilkan pesan kesalahan yang sesuai
+                    Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show()
+                    Log.d("login", "error : ${it.exception}")
+
+                    // Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
                 }
             }
 
