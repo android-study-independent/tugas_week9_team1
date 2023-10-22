@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TugasModule9"
         tools:targetApi="31">
         <activity
+            android:name=".ui.favorite.FavoriteMovieActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.movieDetail.MovieDetailActivity"
             android:exported="false" />
         <activity
