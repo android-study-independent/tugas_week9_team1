@@ -1,7 +1,7 @@
 package com.example.tugasmodule9.data.api
 
 import com.example.tugasmodule9.data.response.NowPlayingResponse
-import com.example.tugasmodule9.data.response.ResultsItem
+import com.example.tugasmodule9.data.response.PopulerResponse
 import com.example.tugasmodule9.data.response.TopRatedResponse
 import com.example.tugasmodule9.data.response.UpCommingResponse
 import retrofit2.http.GET
@@ -31,8 +31,8 @@ interface Routes {
 
     @GET("movie/populer")
     suspend fun getPopuler(
-        @Query("poster_path") posterPath: String?,
-        @Query("title") title : String?
-    ): ResultsItem
+        @Query("language") lang: String = "en-EN",
+        @Query("page") page : Int
+    ): PopulerResponse
 
 }
