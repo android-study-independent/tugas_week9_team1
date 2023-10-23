@@ -12,7 +12,20 @@
           "package_name": "com.example.tugasmodule9"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "791234406365-po4fmj0nk2inrl9l7h31pvqjp36t2l29.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tugasmodule9",
+            "certificate_hash": "638a5c3d2f85f98e637b937a8f44d7224b7155cc"
+          }
+        },
+        {
+          "client_id": "791234406365-0a7ki9btpk1rif69m251ncrf82q0jbo5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAhM-QqL7of1AGRmAzR248VLRsYtigdCMU"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "791234406365-0a7ki9btpk1rif69m251ncrf82q0jbo5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
